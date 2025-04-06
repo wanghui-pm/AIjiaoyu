@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI教育平台 - 场景渗透率收益模拟</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css">
+</head>
+<body class="bg-gray-50 font-sans">
+    <header class="bg-gradient-to-r from-blue-600 to-indigo-800 text-white py-6 shadow-lg">
+        <div class="container mx-auto px-4">
+            <h1 class="text-3xl font-bold flex items-center"><i class="fas fa-robot mr-3"></i>AI教育平台</h1>
+            <p class="text-lg mt-2">场景渗透率收益模拟系统</p>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-8">
+        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4 flex items-center">
+                <i class="fas fa-chart-line text-blue-600 mr-2"></i>场景渗透率收益模拟
+            </h2>
+            <p class="text-gray-600 mb-6">通过调整不同教育场景的渗透率，实时模拟预计收入变化。</p>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-xl font-semibold text-gray-700 mb-4 flex items-center">
+                        <i class="fas fa-sliders-h text-indigo-500 mr-2"></i>场景渗透率设置
+                    </h3>
+                    
+                    <div class="space-y-6">
+                        <div>
+                            <label class="block text-gray-700 mb-2" for="k12-slider">
+                                K12教育 (<span id="k12-value" class="font-semibold text-blue-600">10</span>%)
+                            </label>
+                            <input type="range" id="k12-slider" min="0" max="100" value="10" class="w-full" oninput="updateValue('k12-value', this.value); calculateRevenue();">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-gray-700 mb-2" for="higher-ed-slider">
+                                高等教育 (<span id="higher-ed-value" class="font-semibold text-blue-600">5</span>%)
+                            </label>
+                            <input type="range" id="higher-ed-slider" min="0" max="100" value="5" class="w-full" oninput="updateValue('higher-ed-value', this.value); calculateRevenue();">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-gray-700 mb-2" for="training-slider">
+                                职业培训 (<span id="training-value" class="font-semibold text-blue-600">8</span>%)
+                            </label>
+                            <input type="range" id="training-slider" min="0" max="100" value="8" class="w-full" oninput="updateValue('training-value', this.value); calculateRevenue();">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-gray-700 mb-2" for="language-slider">
+                                语言学习 (<span id="language-value" class="font-semibold text-blue-600">15</span>%)
+                            </label>
+                            <input type="range" id="language-slider" min="0" max="100" value="15" class="w-full" oninput="updateValue('language-value', this.value); calculateRevenue();">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-gray-700 mb-2" for="corporate-slider">
+                                企业培训 (<span id="corporate-value" class="font-semibold text-blue-600">12</span>%)
+                            </label>
+                            <input type="range" id="corporate-slider" min="0" max="100" value="12" class="w-full" oninput="updateValue('corporate-value', this.value); calculateRevenue();">
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8 p-4 bg-blue-50 rounded-lg border border-blue-200">
+                        <h4 class="font-semibold text-blue-800 mb-2 flex items-center">
+                            <i class="fas fa-cogs mr-2"></i>市场参数设置
+                        </h4>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-gray-700 text-sm mb-1" for="market-size">总市场规模 (亿元)</label>
+                                <input type="number" id="market-size" value="1000" min="100" class="w-full px-3 py-2 border rounded" oninput="calculateRevenue()">
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 text-sm mb-1" for="growth-rate">年增长率 (%)</label>
+                                <input type="number" id="growth-rate" value="15" min="0" max="100" class="w-full px-3 py-2 border rounded" oninput="calculateRevenue()">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-semibold text-gray-700 mb-4 flex items-center">
+                        <i class="fas fa-coins text-yellow-500 mr-2"></i>预计收入分析
+                    </h3>
+                    <div class="bg-gray-50 rounded-lg p-4 mb-6">
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="text-center p-4 bg-white rounded-lg shadow-md hover:shadow-lg transition duration-300">
+                                <p class="text-gray-500">当前年度预计收入</p>
+                                <p class="text-3xl font-bold text-blue-600" id="current-revenue">0</p>
+                                <p class="text-sm text-gray-500">万元</p>
+                            </div>
+                            <div class="text-center p-4 bg-white rounded-lg shadow-md hover:shadow-lg transition duration-300">
+                                <p class="text-gray-500">五年总收入</p>
+                                <p class="text-3xl font-bold text-green-600" id="five-year-revenue">0</p>
+                                <p class="text-sm text-gray-500">万元</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6 bg-white p-4 rounded-lg shadow-md">
+                        <canvas id="revenue-chart" height="250"></canvas>
+                    </div>
+                    
+                    <div class="mb-6 bg-white p-4 rounded-lg shadow-md">
+                        <canvas id="penetration-chart" height="250"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="bg-white rounded-lg shadow-md p-6">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4 flex items-center">
+                <i class="fas fa-table text-green-600 mr-2"></i>场景收益对比
+            </h2>
+            <div class="overflow-x-auto">
+                <table class="min-w-full bg-white border border-gray-200 rounded-lg">
+                    <thead class="bg-gray-100">
+                        <tr>
+                            <th class="py-3 px-4 border-b border-gray-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">场景</th>
+                            <th class="py-3 px-4 border-b border-gray-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">渗透率</th>
+                            <th class="py-3 px-4 border-b border-gray-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">市场规模(万元)</th>
+                            <th class="py-3 px-4 border-b border-gray-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">预计收入(万元)</th>
+                            <th class="py-3 px-4 border-b border-gray-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">占总收入比例</th>
+                        </tr>
+                    </thead>
+                    <tbody id="revenue-table-body">
+                        <!-- Table rows will be filled via JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-6 mt-8">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2023 AI教育平台 - 场景渗透率收益模拟系统</p>
+            <div class="flex justify-center mt-4 space-x-4">
+                <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
+                    <i class="fab fa-weixin"></i>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
+                    <i class="fab fa-weibo"></i>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Define chart variables
+        let revenueChart;
+        let penetrationChart;
+        
+        // Define scenario data
+        const scenarios = [
+            { id: 'k12', name: 'K12教育', color: 'rgba(54, 162, 235, 0.8)', borderColor: 'rgb(54, 162, 235)' },
+            { id: 'higher-ed', name: '高等教育', color: 'rgba(255, 99, 132, 0.8)', borderColor: 'rgb(255, 99, 132)' },
+            { id: 'training', name: '职业培训', color: 'rgba(75, 192, 192, 0.8)', borderColor: 'rgb(75, 192, 192)' },
+            { id: 'language', name: '语言学习', color: 'rgba(255, 206, 86, 0.8)', borderColor: 'rgb(255, 206, 86)' },
+            { id: 'corporate', name: '企业培训', color: 'rgba(153, 102, 255, 0.8)', borderColor: 'rgb(153, 102, 255)' }
+        ];
+        
+        // Initialize charts
+        function initCharts() {
+            // Revenue chart - line chart
+            const revenueCtx = document.getElementById('revenue-chart').getContext('2d');
+            revenueChart = new Chart(revenueCtx, {
+                type: 'line',
+                data: {
+                    labels: ['第1年', '第2年', '第3年', '第4年', '第5年'],
+                    datasets: []
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        },
+                        title: {
+                            display: true,
+                            text: '5年收入预测趋势',
+                            font: {
+                                size: 16
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return context.dataset.label + ': ' + context.raw.toLocaleString() + ' 万元';
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                callback: function(value) {
+                                    return value.toLocaleString();
+                                }
+                            },
+                            title: {
+                                display: true,
+                                text: '收入 (万元)'
+                            }
+                        }
+                    }
+                }
+            });
+            
+            // Penetration chart - doughnut chart
+            const penetrationCtx = document.getElementById('penetration-chart').getContext('2d');
+            penetrationChart = new Chart(penetrationCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: scenarios.map(s => s.name),
+                    datasets: [{
+                        data: [],
+                        backgroundColor: scenarios.map(s => s.color),
+                        borderColor: scenarios.map(s => s.borderColor),
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'right',
+                        },
+                        title: {
+                            display: true,
+                            text: '场景收入占比',
+                            font: {
+                                size: 16
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const value = context.raw;
+                                    const total = context.dataset.data.reduce((a, b) => a + b, 0);
+                                    const percentage = Math.round((value / total) * 100);
+                                    return context.label + ': ' + value.toLocaleString() + ' 万元 (' + percentage + '%)';
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+            
+            // Calculate initial revenue
+            calculateRevenue();
+        }
+        
+        // Update displayed value for sliders
+        function updateValue(id, value) {
+            document.getElementById(id).textContent = value;
+        }
+        
+        // Calculate revenue based on penetration rates
+        function calculateRevenue() {
+            const marketSize = parseFloat(document.getElementById('market-size').value) * 10000; // Convert to 万元
+            const growthRate = parseFloat(document.getElementById('growth-rate').value) / 100;
+            
+            // Get penetration rates
+            const penetrationRates = {};
+            let totalRevenue = 0;
+            let scenarioRevenues = [];
+            
+            scenarios.forEach(scenario => {
+                const rate = parseFloat(document.getElementById(`${scenario.id}-slider`).value) / 100;
+                penetrationRates[scenario.id] = rate;
+                
+                const scenarioMarketSize = marketSize * (scenario.id === 'k12' ? 0.4 : 
+                                                       scenario.id === 'higher-ed' ? 0.25 : 
+                                                       scenario.id === 'training' ? 0.15 : 
+                                                       scenario.id === 'language' ? 0.1 : 0.1);
+                                                       
+                const revenue = scenarioMarketSize * rate;
+                totalRevenue += revenue;
+                
+                scenarioRevenues.push({
+                    id: scenario.id,
+                    name: scenario.name,
+                    penetrationRate: rate,
+                    marketSize: scenarioMarketSize,
+                    revenue: revenue,
+                    color: scenario.color,
+                    borderColor: scenario.borderColor
+                });
+            });
+            
+            // Calculate 5-year projections
+            const yearlyRevenues = [];
+            let fiveYearTotal = totalRevenue;
+            
+            yearlyRevenues.push(totalRevenue);
+            
+            for (let i = 1; i < 5; i++) {
+                const nextYearRevenue = yearlyRevenues[i-1] * (1 + growthRate);
+                yearlyRevenues.push(nextYearRevenue);
+                fiveYearTotal += nextYearRevenue;
+            }
+            
+            // Update the UI
+            document.getElementById('current-revenue').textContent = Math.round(totalRevenue).toLocaleString();
+            document.getElementById('five-year-revenue').textContent = Math.round(fiveYearTotal).toLocaleString();
+            
+            // Update the revenue chart with individual scenario projections
+            updateRevenueChart(scenarioRevenues, yearlyRevenues, growthRate);
+            
+            // Update the penetration chart
+            updatePenetrationChart(scenarioRevenues);
+            
+            // Update the revenue table
+            updateRevenueTable(scenarioRevenues, totalRevenue);
+        }
+        
+        // Update revenue chart with individual scenario projections
+        function updateRevenueChart(scenarioRevenues, yearlyRevenues, growthRate) {
+            // Create total revenue dataset
+            const datasets = [{
+                label: '总收入',
+                data: yearlyRevenues.map(r => Math.round(r)),
+                borderColor: 'rgba(75, 192, 192, 1)',
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                borderWidth: 3,
+                fill: true,
+                tension: 0.1
+            }];
+            
+            // Add individual scenario datasets
+            scenarioRevenues.forEach(scenario => {
+                const scenarioYearlyRevenues = [scenario.revenue];
+                for (let i = 1; i < 5; i++) {
+                    scenarioYearlyRevenues.push(scenarioYearlyRevenues[i-1] * (1 + growthRate));
+                }
+                
+                datasets.push({
+                    label: scenario.name,
+                    data: scenarioYearlyRevenues.map(r => Math.round(r)),
+                    borderColor: scenario.borderColor,
+                    backgroundColor: 'transparent',
+                    borderWidth: 2,
+                    borderDash: [5, 5],
+                    tension: 0.1
+                });
+            });
+            
+            revenueChart.data.datasets = datasets;
+            revenueChart.update();
+        }
+        
+        // Update penetration chart
+        function updatePenetrationChart(scenarioRevenues) {
+            penetrationChart.data.datasets[0].data = scenarioRevenues.map(s => Math.round(s.revenue));
+            penetrationChart.update();
+        }
+        
+        // Update revenue table
+        function updateRevenueTable(scenarioRevenues, totalRevenue) {
+            const tableBody = document.getElementById('revenue-table-body');
+            tableBody.innerHTML = '';
+            
+            // Sort scenarios by revenue (descending)
+            scenarioRevenues.sort((a, b) => b.revenue - a.revenue);
+            
+            scenarioRevenues.forEach((scenario, index) => {
+                const row = document.createElement('tr');
+                row.className = index % 2 === 0 ? 'bg-white' : 'bg-gray-50';
+                row.className += ' hover:bg-blue-50 transition-colors duration-150';
+                
+                const nameCell = document.createElement('td');
+                nameCell.className = 'py-3 px-4 border-b border-gray-200';
+                
+                const colorDot = document.createElement('span');
+                colorDot.className = 'inline-block w-3 h-3 rounded-full mr-2';
+                colorDot.style.backgroundColor = scenario.borderColor;
+                
+                nameCell.appendChild(colorDot);
+                nameCell.appendChild(document.createTextNode(scenario.name));
+                
+                const rateCell = document.createElement('td');
+                rateCell.className = 'py-3 px-4 border-b border-gray-200 font-medium';
+                rateCell.textContent = `${(scenario.penetrationRate * 100).toFixed(1)}%`;
+                
+                const marketSizeCell = document.createElement('td');
+                marketSizeCell.className = 'py-3 px-4 border-b border-gray-200';
+                marketSizeCell.textContent = Math.round(scenario.marketSize).toLocaleString();
+                
+                const revenueCell = document.createElement('td');
+                revenueCell.className = 'py-3 px-4 border-b border-gray-200 font-medium text-blue-600';
+                revenueCell.textContent = Math.round(scenario.revenue).toLocaleString();
+                
+                const percentageCell = document.createElement('td');
+                percentageCell.className = 'py-3 px-4 border-b border-gray-200';
+                
+                const percentage = (scenario.revenue / totalRevenue) * 100;
+                const progressBar = document.createElement('div');
+                progressBar.className = 'w-full bg-gray-200 rounded-full h-2.5 mb-1';
+                
+                const progressFill = document.createElement('div');
+                progressFill.className = 'h-2.5 rounded-full';
+                progressFill.style.width = `${percentage}%`;
+                progressFill.style.backgroundColor = scenario.borderColor;
+                
+                progressBar.appendChild(progressFill);
+                percentageCell.appendChild(progressBar);
+                percentageCell.appendChild(document.createTextNode(`${percentage.toFixed(1)}%`));
+                
+                row.appendChild(nameCell);
+                row.appendChild(rateCell);
+                row.appendChild(marketSizeCell);
+                row.appendChild(revenueCell);
+                row.appendChild(percentageCell);
+                
+                tableBody.appendChild(row);
+            });
+            
+            // Add total row
+            const totalRow = document.createElement('tr');
+            totalRow.className = 'bg-gray-100 font-semibold';
+            
+            const totalLabelCell = document.createElement('td');
+            totalLabelCell.className = 'py-3 px-4 border-t border-gray-300';
+            totalLabelCell.textContent = '总计';
+            
+            const emptyCell1 = document.createElement('td');
+            emptyCell1.className = 'py-3 px-4 border-t border-gray-300';
+            
+            const emptyCell2 = document.createElement('td');
+            emptyCell2.className = 'py-3 px-4 border-t border-gray-300';
+            
+            const totalRevenueCell = document.createElement('td');
+            totalRevenueCell.className = 'py-3 px-4 border-t border-gray-300 text-blue-700';
+            totalRevenueCell.textContent = Math.round(totalRevenue).toLocaleString();
+            
+            const totalPercentCell = document.createElement('td');
+            totalPercentCell.className = 'py-3 px-4 border-t border-gray-300';
+            totalPercentCell.textContent = '100%';
+            
+            totalRow.appendChild(totalLabelCell);
+            totalRow.appendChild(emptyCell1);
+            totalRow.appendChild(emptyCell2);
+            totalRow.appendChild(totalRevenueCell);
+            totalRow.appendChild(totalPercentCell);
+            
+            tableBody.appendChild(totalRow);
+        }
+        
+        // Initialize the application
+        window.onload = function() {
+            initCharts();
+        };
+    </script>
+</body>
+</html>
