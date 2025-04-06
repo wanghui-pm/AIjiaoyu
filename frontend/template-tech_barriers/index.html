@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI教育平台技术壁垒</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css">
+</head>
+<body class="bg-gray-50">
+    <!-- Header Section -->
+    <header class="bg-gradient-to-r from-blue-600 to-indigo-800 text-white shadow-lg">
+        <div class="container mx-auto px-4 py-6 flex justify-between items-center">
+            <div class="flex items-center">
+                <i class="fas fa-brain text-3xl mr-3"></i>
+                <h1 class="text-2xl font-bold">智慧教育平台</h1>
+            </div>
+            <nav class="hidden md:flex space-x-6">
+                <a href="#" class="hover:text-blue-200 transition">首页</a>
+                <a href="#multimodal" class="hover:text-blue-200 transition">多模态大模型</a>
+                <a href="#behavior" class="hover:text-blue-200 transition">教学行为识别</a>
+                <a href="#causal" class="hover:text-blue-200 transition">因果推断框架</a>
+                <a href="#" class="hover:text-blue-200 transition">联系我们</a>
+            </nav>
+            <button class="md:hidden text-2xl">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="py-20 bg-gradient-to-b from-indigo-900 to-blue-700 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-6">先进AI教育技术壁垒</h1>
+            <p class="text-xl md:text-2xl mb-10 max-w-3xl mx-auto">我们通过创新的人工智能技术，重新定义教育体验，打造高效、个性化的学习环境</p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <button class="bg-white text-blue-700 px-8 py-3 rounded-full font-medium hover:bg-blue-100 transition transform hover:scale-105">了解更多</button>
+                <button class="bg-transparent border-2 border-white px-8 py-3 rounded-full font-medium hover:bg-white hover:text-blue-700 transition transform hover:scale-105">技术演示</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Technologies Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-16 text-gray-800">核心技术壁垒</h2>
+            
+            <!-- Multimodal Large Model -->
+            <div id="multimodal" class="flex flex-col lg:flex-row items-center mb-20 py-10 border-b border-gray-100">
+                <div class="lg:w-1/2 mb-8 lg:mb-0 lg:pr-10">
+                    <div class="bg-blue-50 p-2 inline-block rounded-lg mb-4">
+                        <i class="fas fa-brain text-blue-600 text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-gray-800">教育多模态大模型</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        我们的多模态大模型能够同时处理文本、图像、音频和视频等多种教育内容，深度理解学生与教师的交流与表达。该模型经过亿级教育场景数据训练，能理解教育内容的专业属性和知识结构。
+                    </p>
+                    <ul class="space-y-3 text-gray-600">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>支持跨模态教育内容理解与生成，实现课程材料的智能处理</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>基于教育学和认知科学原理构建，针对不同年龄段学习者优化</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>自适应学习路径生成，根据学生表现动态调整教学策略</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="lg:w-1/2 bg-gray-100 rounded-xl overflow-hidden shadow-xl transform hover:scale-105 transition duration-500">
+                    <div class="p-6 bg-gradient-to-br from-blue-500 to-indigo-600 text-white">
+                        <h4 class="font-bold mb-2">多模态模型架构</h4>
+                        <div class="flex justify-between text-sm">
+                            <span>精确度: 97.8%</span>
+                            <span>响应时间: 0.2s</span>
+                        </div>
+                    </div>
+                    <div class="p-6 bg-white">
+                        <div class="h-64 bg-gray-200 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-diagram-project text-6xl text-gray-400"></i>
+                        </div>
+                        <div class="mt-4 text-sm text-gray-500">
+                            模型参数量：200B+ | 训练数据：1000万+教育场景 | 支持模态：文本、图像、音频、视频
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Teaching Behavior Recognition -->
+            <div id="behavior" class="flex flex-col lg:flex-row-reverse items-center mb-20 py-10 border-b border-gray-100">
+                <div class="lg:w-1/2 mb-8 lg:mb-0 lg:pl-10">
+                    <div class="bg-green-50 p-2 inline-block rounded-lg mb-4">
+                        <i class="fas fa-eye text-green-600 text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-gray-800">教学行为识别引擎</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        基于计算机视觉和深度学习技术，我们的教学行为识别引擎能实时分析课堂教学活动，捕捉师生互动、学生参与度和情绪状态，为教学评估和干预提供数据基础。
+                    </p>
+                    <ul class="space-y-3 text-gray-600">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>可识别超过50种常见教学行为模式，精确度达95%以上</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>实时分析学生注意力、困惑度和参与程度等教学关键指标</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>通过长期数据累积，构建教师教学风格画像和改进建议</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="lg:w-1/2 bg-gray-100 rounded-xl overflow-hidden shadow-xl transform hover:scale-105 transition duration-500">
+                    <div class="p-6 bg-gradient-to-br from-green-500 to-teal-600 text-white">
+                        <h4 class="font-bold mb-2">行为识别引擎示例</h4>
+                        <div class="flex justify-between text-sm">
+                            <span>实时分析</span>
+                            <span>低延迟处理</span>
+                        </div>
+                    </div>
+                    <div class="p-6 bg-white">
+                        <div class="h-64 bg-gray-200 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-camera-retro text-6xl text-gray-400"></i>
+                        </div>
+                        <div class="mt-4 grid grid-cols-3 gap-2 text-center text-xs">
+                            <div class="bg-green-100 p-2 rounded text-green-700">注意力分析</div>
+                            <div class="bg-blue-100 p-2 rounded text-blue-700">互动检测</div>
+                            <div class="bg-yellow-100 p-2 rounded text-yellow-700">情绪识别</div>
+                            <div class="bg-purple-100 p-2 rounded text-purple-700">姿态分析</div>
+                            <div class="bg-red-100 p-2 rounded text-red-700">行为分类</div>
+                            <div class="bg-indigo-100 p-2 rounded text-indigo-700">场景理解</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Causal Inference Framework -->
+            <div id="causal" class="flex flex-col lg:flex-row items-center py-10">
+                <div class="lg:w-1/2 mb-8 lg:mb-0 lg:pr-10">
+                    <div class="bg-purple-50 p-2 inline-block rounded-lg mb-4">
+                        <i class="fas fa-sitemap text-purple-600 text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-gray-800">教育因果推断框架</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        我们突破性地将因果推断理论应用于教育领域，构建了教育因果推断框架，能揭示教学干预与学习效果之间的因果关系，实现更精准的个性化教学决策。
+                    </p>
+                    <ul class="space-y-3 text-gray-600">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>采用贝叶斯网络和结构方程模型，分析教学干预的直接与间接效应</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>通过反事实推理，预测不同教学策略对学生发展的影响路径</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>整合多源数据，消除混杂因素，确保教学决策的科学性</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="lg:w-1/2 bg-gray-100 rounded-xl overflow-hidden shadow-xl transform hover:scale-105 transition duration-500">
+                    <div class="p-6 bg-gradient-to-br from-purple-500 to-pink-600 text-white">
+                        <h4 class="font-bold mb-2">因果推断模型可视化</h4>
+                        <div class="flex justify-between text-sm">
+                            <span>干预路径分析</span>
+                            <span>效果预测</span>
+                        </div>
+                    </div>
+                    <div class="p-6 bg-white">
+                        <div class="h-64 bg-gray-200 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-project-diagram text-6xl text-gray-400"></i>
+                        </div>
+                        <div class="mt-4">
+                            <div class="h-4 w-full bg-gray-200 rounded-full overflow-hidden">
+                                <div class="h-full bg-purple-600 rounded-full" style="width: 75%"></div>
+                            </div>
+                            <div class="flex justify-between text-xs text-gray-500 mt-1">
+                                <span>干预效果预测准确率</span>
+                                <span>75%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Integration Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-10 text-gray-800">技术协同创新</h2>
+            <p class="text-gray-600 max-w-3xl mx-auto mb-12">三大核心技术壁垒相互协同，形成完整的教育AI技术生态系统，为教师和学生提供无缝的智能教育体验</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition">
+                    <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-rocket text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-gray-800">技术整合</h3>
+                    <p class="text-gray-600">三大核心技术紧密集成，实现从数据采集、分析到智能干预的全流程智能支持</p>
+                </div>
+                <div class="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition">
+                    <div class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-chart-line text-green-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-gray-800">持续优化</h3>
+                    <p class="text-gray-600">系统不断从实际教学场景中学习，通过自我迭代提升教育效果预测准确性</p>
+                </div>
+                <div class="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition">
+                    <div class="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-shield-alt text-purple-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-gray-800">安全可靠</h3>
+                    <p class="text-gray-600">采用严格的数据隐私保护机制，确保所有教学数据的安全与合规使用</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-20 bg-gradient-to-r from-blue-600 to-indigo-800 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">体验AI教育的未来</h2>
+            <p class="text-xl mb-10 max-w-2xl mx-auto">立即探索我们的教育AI技术平台，开启智能化教学新时代</p>
+            <button class="bg-white text-blue-700 px-8 py-4 rounded-full font-medium text-lg hover:bg-blue-100 transition transform hover:scale-105 shadow-lg">
+                申请演示
+            </button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4 text-white">智慧教育平台</h3>
+                    <p class="mb-4">利用前沿AI技术，重塑教育未来</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4 text-white">技术资源</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-white transition">技术白皮书</a></li>
+                        <li><a href="#" class="hover:text-white transition">API文档</a></li>
+                        <li><a href="#" class="hover:text-white transition">开发者社区</a></li>
+                        <li><a href="#" class="hover:text-white transition">研究论文</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4 text-white">解决方案</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-white transition">K12教育</a></li>
+                        <li><a href="#" class="hover:text-white transition">高等教育</a></li>
+                        <li><a href="#" class="hover:text-white transition">企业培训</a></li>
+                        <li><a href="#" class="hover:text-white transition">教育机构</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4 text-white">联系我们</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-2"></i>
+                            <span>北京市海淀区中关村科技园</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope mt-1 mr-2"></i>
+                            <span>contact@aiedu-tech.com</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-phone mt-1 mr-2"></i>
+                            <span>+86 10 8888 8888</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-sm">
+                <p>&copy; 2023 AI教育技术平台. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Menu JS -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuButton = document.querySelector('button.md\\:hidden');
+            const mobileMenu = document.createElement('div');
+            mobileMenu.className = 'fixed inset-0 bg-blue-900 bg-opacity-95 z-50 flex flex-col justify-center items-center transform transition-transform duration-300 translate-x-full md:hidden';
+            mobileMenu.innerHTML = `
+                <button class="absolute top-6 right-6 text-white text-2xl"><i class="fas fa-times"></i></button>
+                <nav class="flex flex-col space-y-6 text-center text-white text-xl">
+                    <a href="#" class="hover:text-blue-200 transition py-2">首页</a>
+                    <a href="#multimodal" class="hover:text-blue-200 transition py-2">多模态大模型</a>
+                    <a href="#behavior" class="hover:text-blue-200 transition py-2">教学行为识别</a>
+                    <a href="#causal" class="hover:text-blue-200 transition py-2">因果推断框架</a>
+                    <a href="#" class="hover:text-blue-200 transition py-2">联系我们</a>
+                </nav>
+            `;
+            document.body.appendChild(mobileMenu);
+            
+            menuButton.addEventListener('click', function() {
+                mobileMenu.classList.toggle('translate-x-full');
+            });
+            
+            mobileMenu.querySelector('button').addEventListener('click', function() {
+                mobileMenu.classList.add('translate-x-full');
+            });
+            
+            const mobileLinks = mobileMenu.querySelectorAll('a');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    mobileMenu.classList.add('translate-x-full');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
