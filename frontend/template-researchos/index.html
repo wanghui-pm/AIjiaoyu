@@ -3,468 +3,198 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI教育平台竞争矩阵分析</title>
+    <title>ResearchOS 功能架构</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
 </head>
-<body class="bg-gray-50">
+<body class="bg-gray-100 min-h-screen">
     <div class="container mx-auto px-4 py-8">
-        <!-- 头部 -->
-        <header class="text-center mb-12">
-            <h1 class="text-4xl font-bold text-indigo-700 mb-2">AI教育平台竞争矩阵分析</h1>
-            <p class="text-xl text-gray-600">中国主要AI教育平台对比与市场分析</p>
+        <header class="mb-12 text-center">
+            <h1 class="text-4xl font-bold text-indigo-700 mb-4">ResearchOS 功能架构</h1>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">面向科研人员的智能操作系统，集成知识管理、理性设计与智能实验三大核心模块</p>
         </header>
 
-        <!-- 简介 -->
-        <section class="mb-12 bg-white rounded-lg shadow-md p-6">
-            <h2 class="text-2xl font-semibold text-indigo-600 mb-4">市场概述</h2>
-            <p class="text-gray-700 mb-4">
-                随着人工智能技术的迅速发展，AI教育平台在中国教育市场中扮演着越来越重要的角色。本分析对比了中国市场上主要的AI教育平台提供商，包括科大讯飞、腾讯教育、超星、金智、希沃(智慧课堂)和好未来等，从多个维度进行了全面的竞争分析。
-            </p>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
-                <div class="bg-indigo-50 p-4 rounded-lg">
-                    <div class="flex items-center">
-                        <i class="fas fa-chart-line text-indigo-500 text-xl mr-3"></i>
-                        <h3 class="font-semibold text-indigo-700">市场规模</h3>
+        <div class="flex flex-col md:flex-row justify-center gap-8 mb-16">
+            <!-- 架构总览图 -->
+            <div class="bg-white rounded-xl shadow-lg p-6 w-full">
+                <h2 class="text-2xl font-bold text-center text-indigo-600 mb-6">ResearchOS 系统架构</h2>
+                <div class="flex flex-col items-center justify-center p-4 bg-indigo-50 rounded-lg">
+                    <div class="w-full max-w-4xl">
+                        <div class="flex flex-col md:flex-row gap-4 justify-between mb-8">
+                            <div class="flex-1 bg-indigo-600 text-white rounded-lg p-4 text-center font-bold">科研知识助手</div>
+                            <div class="flex-1 bg-indigo-600 text-white rounded-lg p-4 text-center font-bold">科研理性设计</div>
+                            <div class="flex-1 bg-indigo-600 text-white rounded-lg p-4 text-center font-bold">科研智能实验</div>
+                        </div>
+                        <div class="bg-indigo-800 text-white rounded-lg p-4 text-center font-bold mb-4">
+                            ResearchOS 核心引擎
+                        </div>
+                        <div class="bg-indigo-700 text-white rounded-lg p-4 text-center font-bold">
+                            科研大模型基础设施
+                        </div>
                     </div>
-                    <p class="mt-2 text-gray-600">中国AI教育市场规模2023年预计超过1500亿元，年复合增长率约25%。</p>
-                </div>
-                <div class="bg-indigo-50 p-4 rounded-lg">
-                    <div class="flex items-center">
-                        <i class="fas fa-users text-indigo-500 text-xl mr-3"></i>
-                        <h3 class="font-semibold text-indigo-700">用户基础</h3>
-                    </div>
-                    <p class="mt-2 text-gray-600">K12教育、高等教育及职业教育构成主要市场，覆盖全国超过5亿用户。</p>
-                </div>
-                <div class="bg-indigo-50 p-4 rounded-lg">
-                    <div class="flex items-center">
-                        <i class="fas fa-rocket text-indigo-500 text-xl mr-3"></i>
-                        <h3 class="font-semibold text-indigo-700">技术趋势</h3>
-                    </div>
-                    <p class="mt-2 text-gray-600">大语言模型、个性化学习、智能评测和虚拟教学助手是当前主要技术方向。</p>
                 </div>
             </div>
-        </section>
+        </div>
 
-        <!-- 竞争矩阵 -->
-        <section class="mb-12">
-            <h2 class="text-2xl font-semibold text-indigo-600 mb-6">竞争矩阵分析</h2>
-            <div class="overflow-x-auto">
-                <table class="min-w-full bg-white rounded-lg shadow-md">
-                    <thead>
-                        <tr class="bg-indigo-600 text-white">
-                            <th class="py-3 px-4 text-left">公司</th>
-                            <th class="py-3 px-4 text-left">市场定位</th>
-                            <th class="py-3 px-4 text-left">核心技术优势</th>
-                            <th class="py-3 px-4 text-left">主要产品/服务</th>
-                            <th class="py-3 px-4 text-left">目标客户</th>
-                            <th class="py-3 px-4 text-left">市场份额</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="border-b hover:bg-gray-50">
-                            <td class="py-3 px-4 font-medium">科大讯飞</td>
-                            <td class="py-3 px-4">AI语音识别与自然语言处理领军企业</td>
-                            <td class="py-3 px-4">语音识别、自然语言处理、智能语音评测</td>
-                            <td class="py-3 px-4">讯飞智慧教育、听说智能评测系统、智能学习机</td>
-                            <td class="py-3 px-4">各级学校、教育主管部门、家庭用户</td>
-                            <td class="py-3 px-4">
-                                <div class="flex items-center">
-                                    <div class="w-16 bg-gray-200 rounded-full h-2.5">
-                                        <div class="bg-indigo-600 h-2.5 rounded-full" style="width: 85%"></div>
-                                    </div>
-                                    <span class="ml-2">23%</span>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr class="border-b hover:bg-gray-50">
-                            <td class="py-3 px-4 font-medium">腾讯教育</td>
-                            <td class="py-3 px-4">互联网+教育综合服务提供商</td>
-                            <td class="py-3 px-4">云计算、大数据分析、社交网络整合</td>
-                            <td class="py-3 px-4">腾讯课堂、企鹅辅导、腾讯智慧校园</td>
-                            <td class="py-3 px-4">K12学校、高校、社会培训机构</td>
-                            <td class="py-3 px-4">
-                                <div class="flex items-center">
-                                    <div class="w-16 bg-gray-200 rounded-full h-2.5">
-                                        <div class="bg-indigo-600 h-2.5 rounded-full" style="width: 70%"></div>
-                                    </div>
-                                    <span class="ml-2">18%</span>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr class="border-b hover:bg-gray-50">
-                            <td class="py-3 px-4 font-medium">超星</td>
-                            <td class="py-3 px-4">高等教育数字化资源与平台提供商</td>
-                            <td class="py-3 px-4">数字资源库、学习分析、教学管理系统</td>
-                            <td class="py-3 px-4">学习通、泛雅、超星数字图书馆</td>
-                            <td class="py-3 px-4">高等院校、职业院校、图书馆</td>
-                            <td class="py-3 px-4">
-                                <div class="flex items-center">
-                                    <div class="w-16 bg-gray-200 rounded-full h-2.5">
-                                        <div class="bg-indigo-600 h-2.5 rounded-full" style="width: 60%"></div>
-                                    </div>
-                                    <span class="ml-2">16%</span>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr class="border-b hover:bg-gray-50">
-                            <td class="py-3 px-4 font-medium">金智</td>
-                            <td class="py-3 px-4">高等教育信息化解决方案专家</td>
-                            <td class="py-3 px-4">校园信息化、教务系统、智慧校园解决方案</td>
-                            <td class="py-3 px-4">金智教务系统、一站式校园服务平台</td>
-                            <td class="py-3 px-4">高等院校、教育行政部门</td>
-                            <td class="py-3 px-4">
-                                <div class="flex items-center">
-                                    <div class="w-16 bg-gray-200 rounded-full h-2.5">
-                                        <div class="bg-indigo-600 h-2.5 rounded-full" style="width: 45%"></div>
-                                    </div>
-                                    <span class="ml-2">12%</span>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr class="border-b hover:bg-gray-50">
-                            <td class="py-3 px-4 font-medium">希沃(智慧课堂)</td>
-                            <td class="py-3 px-4">智能教学设备与软件服务提供商</td>
-                            <td class="py-3 px-4">交互式硬件、教学软件、课堂互动技术</td>
-                            <td class="py-3 px-4">希沃白板、班级优化大师、希沃易课堂</td>
-                            <td class="py-3 px-4">K12学校、教育培训机构</td>
-                            <td class="py-3 px-4">
-                                <div class="flex items-center">
-                                    <div class="w-16 bg-gray-200 rounded-full h-2.5">
-                                        <div class="bg-indigo-600 h-2.5 rounded-full" style="width: 65%"></div>
-                                    </div>
-                                    <span class="ml-2">17%</span>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr class="hover:bg-gray-50">
-                            <td class="py-3 px-4 font-medium">好未来</td>
-                            <td class="py-3 px-4">K12智能教育与在线教育平台</td>
-                            <td class="py-3 px-4">AI自适应学习、智能题库、教学内容开发</td>
-                            <td class="py-3 px-4">学而思网校、家长帮、智慧课堂系统</td>
-                            <td class="py-3 px-4">K12学生、家长、学校</td>
-                            <td class="py-3 px-4">
-                                <div class="flex items-center">
-                                    <div class="w-16 bg-gray-200 rounded-full h-2.5">
-                                        <div class="bg-indigo-600 h-2.5 rounded-full" style="width: 55%"></div>
-                                    </div>
-                                    <span class="ml-2">14%</span>
-                                </div>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
-
-        <!-- 细节对比分析 -->
-        <section class="mb-12 grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div class="bg-white rounded-lg shadow-md p-6">
-                <h2 class="text-2xl font-semibold text-indigo-600 mb-4">核心能力对比</h2>
-                <div class="h-80">
-                    <canvas id="radarChart"></canvas>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- 科研知识助手 -->
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl">
+                <div class="bg-blue-600 py-4 px-6">
+                    <h2 class="text-2xl font-bold text-white flex items-center">
+                        <i class="fas fa-brain mr-3"></i>科研知识助手
+                    </h2>
                 </div>
-            </div>
-            <div class="bg-white rounded-lg shadow-md p-6">
-                <h2 class="text-2xl font-semibold text-indigo-600 mb-4">目标市场分布</h2>
-                <div class="h-80">
-                    <canvas id="marketChart"></canvas>
-                </div>
-            </div>
-        </section>
-
-        <!-- 优势特点分析 -->
-        <section class="mb-12">
-            <h2 class="text-2xl font-semibold text-indigo-600 mb-6">各平台核心优势特点</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                    <div class="bg-indigo-600 py-3 px-4 text-white font-semibold">科大讯飞</div>
-                    <div class="p-4">
-                        <ul class="space-y-2">
-                            <li class="flex items-start">
-                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
-                                <span>业内最领先的语音识别与自然语言处理技术</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
-                                <span>完整的AI教育产品生态系统</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
-                                <span>拥有大量高质量的语言学习与评测数据</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
-                                <span>与政府教育部门合作紧密，覆盖面广</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                    <div class="bg-indigo-600 py-3 px-4 text-white font-semibold">腾讯教育</div>
-                    <div class="p-4">
-                        <ul class="space-y-2">
-                            <li class="flex items-start">
-                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
-                                <span>强大的社交媒体与云计算基础设施支持</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
-                                <span>整合微信生态，线上线下全场景教育解决方案</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
-                                <span>内容创作与分发能力强</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
-                                <span>资本实力雄厚，投资并购活跃</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                    <div class="bg-indigo-600 py-3 px-4 text-white font-semibold">希沃(智慧课堂)</div>
-                    <div class="p-4">
-                        <ul class="space-y-2">
-                            <li class="flex items-start">
-                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
-                                <span>优质的智能教学硬件设备与软件结合</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
-                                <span>课堂互动与教学管理工具体系完善</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
-                                <span>深入中小学教育场景，用户体验好</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
-                                <span>完整的教学设备销售、培训和服务体系</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SWOT分析 -->
-        <section class="mb-12">
-            <h2 class="text-2xl font-semibold text-indigo-600 mb-6">整体市场SWOT分析</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="bg-green-50 p-6 rounded-lg shadow-md">
-                    <h3 class="text-xl font-semibold text-green-700 mb-3">优势 (Strengths)</h3>
-                    <ul class="space-y-2">
+                <div class="p-6">
+                    <p class="text-gray-600 mb-6">为科研人员提供智能知识管理与检索服务，加速知识获取与整合。</p>
+                    
+                    <ul class="space-y-4">
                         <li class="flex items-start">
-                            <i class="fas fa-plus-circle text-green-600 mt-1 mr-2"></i>
-                            <span>中国AI技术研发实力不断增强</span>
+                            <div class="bg-blue-100 p-2 rounded-full mr-3">
+                                <i class="fas fa-search text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-lg text-blue-700">智能文献检索</h3>
+                                <p class="text-gray-600">基于语义理解的精准文献搜索与推荐</p>
+                            </div>
                         </li>
                         <li class="flex items-start">
-                            <i class="fas fa-plus-circle text-green-600 mt-1 mr-2"></i>
-                            <span>庞大的教育市场规模与用户基础</span>
+                            <div class="bg-blue-100 p-2 rounded-full mr-3">
+                                <i class="fas fa-file-alt text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-lg text-blue-700">文献解读助手</h3>
+                                <p class="text-gray-600">自动提取文献关键信息，提供深度解读与总结</p>
+                            </div>
                         </li>
                         <li class="flex items-start">
-                            <i class="fas fa-plus-circle text-green-600 mt-1 mr-2"></i>
-                            <span>政府对教育信息化建设的大力支持</span>
+                            <div class="bg-blue-100 p-2 rounded-full mr-3">
+                                <i class="fas fa-project-diagram text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-lg text-blue-700">知识图谱构建</h3>
+                                <p class="text-gray-600">自动建立研究领域知识连接，发现潜在关联</p>
+                            </div>
                         </li>
                         <li class="flex items-start">
-                            <i class="fas fa-plus-circle text-green-600 mt-1 mr-2"></i>
-                            <span>互联网基础设施完善，深度普及</span>
-                        </li>
-                    </ul>
-                </div>
-                <div class="bg-yellow-50 p-6 rounded-lg shadow-md">
-                    <h3 class="text-xl font-semibold text-yellow-700 mb-3">劣势 (Weaknesses)</h3>
-                    <ul class="space-y-2">
-                        <li class="flex items-start">
-                            <i class="fas fa-minus-circle text-yellow-600 mt-1 mr-2"></i>
-                            <span>城乡教育资源分配不均</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-minus-circle text-yellow-600 mt-1 mr-2"></i>
-                            <span>AI教育应用深度不足，存在"伪AI"现象</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-minus-circle text-yellow-600 mt-1 mr-2"></i>
-                            <span>教师AI应用能力参差不齐</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-minus-circle text-yellow-600 mt-1 mr-2"></i>
-                            <span>数据隐私与安全问题仍需解决</span>
-                        </li>
-                    </ul>
-                </div>
-                <div class="bg-blue-50 p-6 rounded-lg shadow-md">
-                    <h3 class="text-xl font-semibold text-blue-700 mb-3">机会 (Opportunities)</h3>
-                    <ul class="space-y-2">
-                        <li class="flex items-start">
-                            <i class="fas fa-lightbulb text-blue-600 mt-1 mr-2"></i>
-                            <span>大模型技术为教育内容创新提供可能</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-lightbulb text-blue-600 mt-1 mr-2"></i>
-                            <span>在线教育需求持续增长</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-lightbulb text-blue-600 mt-1 mr-2"></i>
-                            <span>教育评价改革推动智能评测需求</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-lightbulb text-blue-600 mt-1 mr-2"></i>
-                            <span>个性化学习成为新趋势</span>
-                        </li>
-                    </ul>
-                </div>
-                <div class="bg-red-50 p-6 rounded-lg shadow-md">
-                    <h3 class="text-xl font-semibold text-red-700 mb-3">威胁 (Threats)</h3>
-                    <ul class="space-y-2">
-                        <li class="flex items-start">
-                            <i class="fas fa-exclamation-triangle text-red-600 mt-1 mr-2"></i>
-                            <span>市场竞争白热化，同质化现象严重</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-exclamation-triangle text-red-600 mt-1 mr-2"></i>
-                            <span>教育政策变化可能带来不确定性</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-exclamation-triangle text-red-600 mt-1 mr-2"></i>
-                            <span>大模型伦理、数据安全等问题日益突出</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-exclamation-triangle text-red-600 mt-1 mr-2"></i>
-                            <span>盈利模式尚不稳定，市场预期存在波动</span>
+                            <div class="bg-blue-100 p-2 rounded-full mr-3">
+                                <i class="fas fa-question-circle text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-lg text-blue-700">科研问答系统</h3>
+                                <p class="text-gray-600">智能回答科研问题，提供专业咨询与支持</p>
+                            </div>
                         </li>
                     </ul>
                 </div>
             </div>
-        </section>
 
-        <!-- 结论与趋势预测 -->
-        <section class="bg-white rounded-lg shadow-md p-6 mb-8">
-            <h2 class="text-2xl font-semibold text-indigo-600 mb-4">市场发展趋势与结论</h2>
-            <div class="space-y-4 text-gray-700">
-                <p><span class="font-semibold text-indigo-600">1. 技术融合加速：</span>大语言模型、XR技术、数字孪生等前沿技术将与教育深度融合，创造沉浸式学习体验。</p>
-                <p><span class="font-semibold text-indigo-600">2. 个性化学习深化：</span>自适应学习系统将更精准地满足学生个体需求，实现因材施教。</p>
-                <p><span class="font-semibold text-indigo-600">3. 行业整合加剧：</span>头部企业通过并购扩大市场份额，中小企业寻求差异化生存。</p>
-                <p><span class="font-semibold text-indigo-600">4. 全场景教育普及：</span>线上线下融合的混合式学习将成为主流教育模式。</p>
-                <p><span class="font-semibold text-indigo-600">5. 全生命周期学习：</span>AI教育平台将从K12向高等教育、职业教育和终身学习扩展。</p>
+            <!-- 科研理性设计 -->
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl">
+                <div class="bg-purple-600 py-4 px-6">
+                    <h2 class="text-2xl font-bold text-white flex items-center">
+                        <i class="fas fa-lightbulb mr-3"></i>科研理性设计
+                    </h2>
+                </div>
+                <div class="p-6">
+                    <p class="text-gray-600 mb-6">辅助科研人员进行实验设计、假设生成与优化，提高研究效率。</p>
+                    
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <div class="bg-purple-100 p-2 rounded-full mr-3">
+                                <i class="fas fa-flask text-purple-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-lg text-purple-700">实验方案设计</h3>
+                                <p class="text-gray-600">智能生成与优化实验方案，提供方法建议</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="bg-purple-100 p-2 rounded-full mr-3">
+                                <i class="fas fa-chart-line text-purple-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-lg text-purple-700">数据分析规划</h3>
+                                <p class="text-gray-600">辅助设计数据收集与分析策略，确保统计有效性</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="bg-purple-100 p-2 rounded-full mr-3">
+                                <i class="fas fa-puzzle-piece text-purple-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-lg text-purple-700">科研假设生成</h3>
+                                <p class="text-gray-600">基于现有知识智能生成研究假设与创新点</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="bg-purple-100 p-2 rounded-full mr-3">
+                                <i class="fas fa-edit text-purple-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-lg text-purple-700">实验方案优化</h3>
+                                <p class="text-gray-600">分析实验设计漏洞，提供优化建议</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
             </div>
-            <div class="mt-6 p-4 bg-indigo-50 rounded-lg">
-                <h3 class="font-semibold text-indigo-700 mb-2">竞争格局展望</h3>
-                <p class="text-gray-700">
-                    未来3-5年内，科大讯飞凭借其AI核心技术优势有望保持领先地位；腾讯教育依托其生态系统将强化市场份额；希沃在硬件与软件结合方面优势明显；超星在高等教育领域具备竞争壁垒；而好未来和金智将在各自细分领域深耕。市场整体将从粗放增长转向精细化运营，企业间的技术与服务差异化竞争将成为关键。
-                </p>
-            </div>
-        </section>
 
-        <!-- 页脚 -->
-        <footer class="text-center text-gray-500 text-sm mt-12 pb-6">
-            <p>© 2023 AI教育平台竞争矩阵分析报告 | 数据更新日期：2023年11月</p>
+            <!-- 科研智能实验 -->
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl">
+                <div class="bg-green-600 py-4 px-6">
+                    <h2 class="text-2xl font-bold text-white flex items-center">
+                        <i class="fas fa-vial mr-3"></i>科研智能实验
+                    </h2>
+                </div>
+                <div class="p-6">
+                    <p class="text-gray-600 mb-6">提供实验自动化与智能分析工具，实现实验过程的智能化与标准化。</p>
+                    
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <div class="bg-green-100 p-2 rounded-full mr-3">
+                                <i class="fas fa-robot text-green-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-lg text-green-700">实验过程自动化</h3>
+                                <p class="text-gray-600">自动执行实验步骤，降低人为误差</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="bg-green-100 p-2 rounded-full mr-3">
+                                <i class="fas fa-chart-bar text-green-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-lg text-green-700">智能数据分析</h3>
+                                <p class="text-gray-600">自动处理实验数据，提供深度分析与可视化</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="bg-green-100 p-2 rounded-full mr-3">
+                                <i class="fas fa-bug text-green-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-lg text-green-700">异常检测与预警</h3>
+                                <p class="text-gray-600">实时监控实验异常，提供预警与解决方案</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="bg-green-100 p-2 rounded-full mr-3">
+                                <i class="fas fa-sync-alt text-green-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-lg text-green-700">实验迭代优化</h3>
+                                <p class="text-gray-600">基于实验结果自动调整参数，实现实验优化</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <footer class="mt-16 text-center text-gray-500">
+            <p>© 2023 ResearchOS - 科研智能操作系统</p>
+            <p class="mt-2">赋能科学研究，加速创新发现</p>
         </footer>
     </div>
-
-    <script>
-        // 雷达图 - 核心能力对比
-        const radarCtx = document.getElementById('radarChart').getContext('2d');
-        const radarChart = new Chart(radarCtx, {
-            type: 'radar',
-            data: {
-                labels: ['AI技术', '内容资源', '用户体验', '平台整合', '服务支持', '创新能力'],
-                datasets: [
-                    {
-                        label: '科大讯飞',
-                        data: [95, 85, 80, 78, 85, 90],
-                        backgroundColor: 'rgba(99, 102, 241, 0.2)',
-                        borderColor: 'rgba(99, 102, 241, 1)',
-                        pointBackgroundColor: 'rgba(99, 102, 241, 1)',
-                        pointBorderColor: '#fff',
-                    },
-                    {
-                        label: '腾讯教育',
-                        data: [85, 90, 88, 92, 80, 88],
-                        backgroundColor: 'rgba(16, 185, 129, 0.2)',
-                        borderColor: 'rgba(16, 185, 129, 1)',
-                        pointBackgroundColor: 'rgba(16, 185, 129, 1)',
-                        pointBorderColor: '#fff',
-                    },
-                    {
-                        label: '希沃',
-                        data: [75, 88, 90, 82, 92, 85],
-                        backgroundColor: 'rgba(245, 158, 11, 0.2)',
-                        borderColor: 'rgba(245, 158, 11, 1)',
-                        pointBackgroundColor: 'rgba(245, 158, 11, 1)',
-                        pointBorderColor: '#fff',
-                    },
-                    {
-                        label: '超星',
-                        data: [70, 95, 78, 75, 80, 72],
-                        backgroundColor: 'rgba(239, 68, 68, 0.2)',
-                        borderColor: 'rgba(239, 68, 68, 1)',
-                        pointBackgroundColor: 'rgba(239, 68, 68, 1)',
-                        pointBorderColor: '#fff',
-                    }
-                ]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                scales: {
-                    r: {
-                        angleLines: {
-                            display: true
-                        },
-                        suggestedMin: 50,
-                        suggestedMax: 100
-                    }
-                }
-            }
-        });
-
-        // 目标市场分布图
-        const marketCtx = document.getElementById('marketChart').getContext('2d');
-        const marketChart = new Chart(marketCtx, {
-            type: 'bar',
-            data: {
-                labels: ['科大讯飞', '腾讯教育', '超星', '金智', '希沃', '好未来'],
-                datasets: [
-                    {
-                        label: 'K12教育',
-                        data: [40, 35, 15, 10, 45, 65],
-                        backgroundColor: 'rgba(99, 102, 241, 0.7)',
-                    },
-                    {
-                        label: '高等教育',
-                        data: [30, 25, 65, 70, 20, 10],
-                        backgroundColor: 'rgba(16, 185, 129, 0.7)',
-                    },
-                    {
-                        label: '职业教育',
-                        data: [20, 25, 15, 15, 10, 15],
-                        backgroundColor: 'rgba(245, 158, 11, 0.7)',
-                    },
-                    {
-                        label: '家庭教育',
-                        data: [10, 15, 5, 5, 25, 10],
-                        backgroundColor: 'rgba(239, 68, 68, 0.7)',
-                    }
-                ]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                scales: {
-                    x: {
-                        stacked: true,
-                    },
-                    y: {
-                        stacked: true,
-                        max: 100
-                    }
-                }
-            }
-        });
-    </script>
 </body>
 </html>
