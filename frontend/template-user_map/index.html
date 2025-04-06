@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI教育平台用户图谱</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css">
+    <style>
+        .user-card {
+            transition: all 0.3s ease;
+        }
+        .user-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        .connection-line {
+            position: absolute;
+            background-color: #ddd;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <div class="container mx-auto px-4 py-12">
+        <h1 class="text-4xl font-bold text-center text-indigo-800 mb-12">AI教育平台用户图谱</h1>
+        
+        <!-- Force Graph representation -->
+        <div class="mb-16">
+            <h2 class="text-2xl font-bold text-center mb-6 text-indigo-800">用户关系图谱</h2>
+            <div id="graph" class="w-full h-96 border border-gray-200 rounded-lg bg-white"></div>
+        </div>
+        
+        <!-- User Types -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+            <!-- G端 - Government/Educational -->
+            <div class="user-card bg-white rounded-lg shadow-md overflow-hidden">
+                <div class="bg-red-600 text-white p-4">
+                    <h2 class="text-2xl font-bold">G端</h2>
+                    <p class="text-sm">政府及教育机构</p>
+                </div>
+                <div class="p-4">
+                    <h3 class="font-bold mb-2">需求：</h3>
+                    <ul class="list-disc pl-5 mb-4 text-sm">
+                        <li>教育资源均衡分配</li>
+                        <li>教学质量监控与评估</li>
+                        <li>教育数据分析与决策支持</li>
+                        <li>规模化教育解决方案</li>
+                    </ul>
+                    <h3 class="font-bold mb-2">解决方案：</h3>
+                    <ul class="list-disc pl-5 text-sm">
+                        <li>智能教学资源分配系统</li>
+                        <li>AI教学质量评估平台</li>
+                        <li>教育大数据分析中心</li>
+                        <li>区域教育云平台建设</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- B端 - Business -->
+            <div class="user-card bg-white rounded-lg shadow-md overflow-hidden">
+                <div class="bg-blue-600 text-white p-4">
+                    <h2 class="text-2xl font-bold">B端</h2>
+                    <p class="text-sm">企业用户</p>
+                </div>
+                <div class="p-4">
+                    <h3 class="font-bold mb-2">需求：</h3>
+                    <ul class="list-disc pl-5 mb-4 text-sm">
+                        <li>员工技能培训与评估</li>
+                        <li>人才招聘与筛选</li>
+                        <li>企业知识库构建</li>
+                        <li>定制化学习方案</li>
+                    </ul>
+                    <h3 class="font-bold mb-2">解决方案：</h3>
+                    <ul class="list-disc pl-5 text-sm">
+                        <li>AI驱动的企业培训系统</li>
+                        <li>智能人才评估工具</li>
+                        <li>知识图谱构建服务</li>
+                        <li>企业学习平台定制服务</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- C端 - Consumer -->
+            <div class="user-card bg-white rounded-lg shadow-md overflow-hidden">
+                <div class="bg-green-600 text-white p-4">
+                    <h2 class="text-2xl font-bold">C端</h2>
+                    <p class="text-sm">个人用户</p>
+                </div>
+                <div class="p-4">
+                    <h3 class="font-bold mb-2">需求：</h3>
+                    <ul class="list-disc pl-5 mb-4 text-sm">
+                        <li>个性化学习体验</li>
+                        <li>技能提升与认证</li>
+                        <li>职业发展规划</li>
+                        <li>兴趣探索与发现</li>
+                    </ul>
+                    <h3 class="font-bold mb-2">解决方案：</h3>
+                    <ul class="list-disc pl-5 text-sm">
+                        <li>AI个性化学习路径</li>
+                        <li>微认证与技能徽章系统</li>
+                        <li>智能职业顾问</li>
+                        <li>基于兴趣的学习推荐</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- R端 - Research -->
+            <div class="user-card bg-white rounded-lg shadow-md overflow-hidden">
+                <div class="bg-purple-600 text-white p-4">
+                    <h2 class="text-2xl font-bold">R端</h2>
+                    <p class="text-sm">研究机构</p>
+                </div>
+                <div class="p-4">
+                    <h3 class="font-bold mb-2">需求：</h3>
+                    <ul class="list-disc pl-5 mb-4 text-sm">
+                        <li>教育AI算法研发</li>
+                        <li>学习行为数据研究</li>
+                        <li>实验平台与验证</li>
+                        <li>跨领域研究合作</li>
+                    </ul>
+                    <h3 class="font-bold mb-2">解决方案：</h3>
+                    <ul class="list-disc pl-5 text-sm">
+                        <li>开放AI研究环境</li>
+                        <li>学习数据分析API</li>
+                        <li>研究成果转化渠道</li>
+                        <li>学术研究合作网络</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Platform Features -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-12">
+            <h2 class="text-2xl font-bold text-center mb-6 text-indigo-800">平台核心功能</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="p-4 border border-gray-200 rounded-lg text-center">
+                    <div class="w-16 h-16 mx-auto mb-3 bg-indigo-100 rounded-full flex items-center justify-center">
+                        <i class="fas fa-brain text-2xl text-indigo-600"></i>
+                    </div>
+                    <h3 class="font-bold mb-2">智能学习系统</h3>
+                    <p class="text-sm text-gray-600">基于AI的自适应学习系统，实时调整学习内容与难度</p>
+                </div>
+                <div class="p-4 border border-gray-200 rounded-lg text-center">
+                    <div class="w-16 h-16 mx-auto mb-3 bg-indigo-100 rounded-full flex items-center justify-center">
+                        <i class="fas fa-chart-line text-2xl text-indigo-600"></i>
+                    </div>
+                    <h3 class="font-bold mb-2">数据分析平台</h3>
+                    <p class="text-sm text-gray-600">多维度教育数据收集与分析，提供决策支持</p>
+                </div>
+                <div class="p-4 border border-gray-200 rounded-lg text-center">
+                    <div class="w-16 h-16 mx-auto mb-3 bg-indigo-100 rounded-full flex items-center justify-center">
+                        <i class="fas fa-project-diagram text-2xl text-indigo-600"></i>
+                    </div>
+                    <h3 class="font-bold mb-2">知识图谱构建</h3>
+                    <p class="text-sm text-gray-600">自动化知识点关联与结构化，形成立体学习体系</p>
+                </div>
+                <div class="p-4 border border-gray-200 rounded-lg text-center">
+                    <div class="w-16 h-16 mx-auto mb-3 bg-indigo-100 rounded-full flex items-center justify-center">
+                        <i class="fas fa-users-cog text-2xl text-indigo-600"></i>
+                    </div>
+                    <h3 class="font-bold mb-2">多端协同系统</h3>
+                    <p class="text-sm text-gray-600">连接各类用户需求，实现教育资源优化配置</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Value Proposition -->
+        <div class="text-center mb-12">
+            <h2 class="text-2xl font-bold mb-4 text-indigo-800">我们的价值主张</h2>
+            <p class="max-w-3xl mx-auto text-gray-600">
+                通过AI技术重塑教育生态，连接政府、企业、个人和研究机构，实现教育资源的智能分配与高效利用，
+                打造开放、共享、高效、个性化的新一代教育平台。
+            </p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-indigo-900 text-white py-8">
+        <div class="container mx-auto px-4 text-center">
+            <h3 class="text-xl font-bold mb-4">AI教育平台用户图谱</h3>
+            <p class="mb-4">连接各方力量，共创教育未来</p>
+            <div class="flex justify-center space-x-4">
+                <a href="#" class="hover:text-indigo-300"><i class="fab fa-weixin text-2xl"></i></a>
+                <a href="#" class="hover:text-indigo-300"><i class="fab fa-weibo text-2xl"></i></a>
+                <a href="#" class="hover:text-indigo-300"><i class="fab fa-linkedin text-2xl"></i></a>
+            </div>
+            <p class="mt-6 text-indigo-300 text-sm">© 2023 AI教育平台. 版权所有.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/d3@7.8.2/dist/d3.min.js"></script>
+    <script>
+        // Simple force-directed graph
+        document.addEventListener('DOMContentLoaded', function() {
+            const width = document.getElementById('graph').clientWidth;
+            const height = 400;
+            
+            const nodes = [
+                { id: "center", name: "AI教育平台", group: 0 },
+                { id: "g", name: "G端: 政府及教育机构", group: 1 },
+                { id: "b", name: "B端: 企业用户", group: 2 },
+                { id: "c", name: "C端: 个人用户", group: 3 },
+                { id: "r", name: "R端: 研究机构", group: 4 },
+            ];
+            
+            const links = [
+                { source: "center", target: "g", value: 5 },
+                { source: "center", target: "b", value: 5 },
+                { source: "center", target: "c", value: 5 },
+                { source: "center", target: "r", value: 5 },
+                { source: "g", target: "b", value: 2 },
+                { source: "g", target: "r", value: 2 },
+                { source: "b", target: "c", value: 2 },
+                { source: "c", target: "r", value: 2 },
+            ];
+            
+            const colors = d3.scaleOrdinal()
+                .domain([0, 1, 2, 3, 4])
+                .range(["#4F46E5", "#DC2626", "#2563EB", "#16A34A", "#9333EA"]);
+            
+            const simulation = d3.forceSimulation(nodes)
+                .force("link", d3.forceLink(links).id(d => d.id).distance(100))
+                .force("charge", d3.forceManyBody().strength(-500))
+                .force("center", d3.forceCenter(width / 2, height / 2));
+            
+            const svg = d3.select("#graph")
+                .append("svg")
+                .attr("width", width)
+                .attr("height", height)
+                .attr("viewBox", [0, 0, width, height]);
+            
+            const link = svg.append("g")
+                .selectAll("line")
+                .data(links)
+                .join("line")
+                .attr("stroke", "#999")
+                .attr("stroke-opacity", 0.6)
+                .attr("stroke-width", d => Math.sqrt(d.value));
+            
+            const node = svg.append("g")
+                .selectAll("g")
+                .data(nodes)
+                .join("g")
+                .call(d3.drag()
+                    .on("start", dragstarted)
+                    .on("drag", dragged)
+                    .on("end", dragended));
+            
+            node.append("circle")
+                .attr("r", d => d.id === "center" ? 30 : 20)
+                .attr("fill", d => colors(d.group))
+                .attr("stroke", "#fff")
+                .attr("stroke-width", 1.5);
+            
+            node.append("text")
+                .attr("x", 0)
+                .attr("y", d => d.id === "center" ? 45 : 35)
+                .attr("text-anchor", "middle")
+                .text(d => d.name)
+                .attr("font-size", "12px")
+                .attr("fill", "#333");
+            
+            simulation.on("tick", () => {
+                link
+                    .attr("x1", d => d.source.x)
+                    .attr("y1", d => d.source.y)
+                    .attr("x2", d => d.target.x)
+                    .attr("y2", d => d.target.y);
+                
+                node
+                    .attr("transform", d => `translate(${d.x},${d.y})`);
+            });
+            
+            function dragstarted(event, d) {
+                if (!event.active) simulation.alphaTarget(0.3).restart();
+                d.fx = d.x;
+                d.fy = d.y;
+            }
+            
+            function dragged(event, d) {
+                d.fx = event.x;
+                d.fy = event.y;
+            }
+            
+            function dragended(event, d) {
+                if (!event.active) simulation.alphaTarget(0);
+                d.fx = null;
+                d.fy = null;
+            }
+        });
+    </script>
+</body>
+</html>
