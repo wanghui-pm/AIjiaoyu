@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI教育平台算力成本演进曲线 (2024-2026)</title>
+    <!-- Tailwind CSS via CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css">
+</head>
+<body class="bg-gray-50">
+    <div class="container mx-auto px-4 py-8">
+        <!-- Header -->
+        <header class="mb-10 text-center">
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">AI教育平台算力成本演进曲线</h1>
+            <p class="text-lg text-gray-600">2024年-2026年预测分析与成本优化策略</p>
+        </header>
+        
+        <!-- Main Content -->
+        <main>
+            <!-- Cost Evolution Section -->
+            <section class="bg-white rounded-lg shadow-lg p-6 mb-10">
+                <h2 class="text-2xl font-semibold text-gray-800 mb-6">算力成本演进趋势 (2024-2026)</h2>
+                <div class="mb-8">
+                    <canvas id="costEvolutionChart" height="300"></canvas>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
+                    <div class="p-4 bg-blue-50 rounded-lg">
+                        <h3 class="font-semibold text-blue-700">2024年</h3>
+                        <p class="text-gray-700">初期高成本阶段</p>
+                        <p class="text-2xl font-bold text-blue-800">¥0.42/学生时</p>
+                    </div>
+                    <div class="p-4 bg-indigo-50 rounded-lg">
+                        <h3 class="font-semibold text-indigo-700">2025年</h3>
+                        <p class="text-gray-700">优化过渡阶段</p>
+                        <p class="text-2xl font-bold text-indigo-800">¥0.28/学生时</p>
+                    </div>
+                    <div class="p-4 bg-purple-50 rounded-lg">
+                        <h3 class="font-semibold text-purple-700">2026年</h3>
+                        <p class="text-gray-700">规模化效益阶段</p>
+                        <p class="text-2xl font-bold text-purple-800">¥0.15/学生时</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Cost Optimization Measures -->
+            <section class="bg-white rounded-lg shadow-lg p-6 mb-10">
+                <h2 class="text-2xl font-semibold text-gray-800 mb-6">成本优化措施</h2>
+                <div class="mb-8">
+                    <canvas id="optimizationChart" height="250"></canvas>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+                    <div class="bg-gray-50 p-5 rounded-lg">
+                        <div class="flex items-center mb-3">
+                            <i class="fas fa-microchip text-green-500 text-xl mr-3"></i>
+                            <h3 class="text-xl font-semibold text-gray-800">模型量化与压缩</h3>
+                        </div>
+                        <p class="text-gray-600">通过INT8/INT4量化和知识蒸馏技术，在保持模型精度的同时减少计算资源需求，可降低成本约25-35%。</p>
+                    </div>
+                    <div class="bg-gray-50 p-5 rounded-lg">
+                        <div class="flex items-center mb-3">
+                            <i class="fas fa-server text-blue-500 text-xl mr-3"></i>
+                            <h3 class="text-xl font-semibold text-gray-800">混合云策略</h3>
+                        </div>
+                        <p class="text-gray-600">结合自建基础设施与公有云弹性资源，优化峰值负载处理，降低总体拥有成本(TCO)约20%。</p>
+                    </div>
+                    <div class="bg-gray-50 p-5 rounded-lg">
+                        <div class="flex items-center mb-3">
+                            <i class="fas fa-memory text-purple-500 text-xl mr-3"></i>
+                            <h3 class="text-xl font-semibold text-gray-800">批处理优化</h3>
+                        </div>
+                        <p class="text-gray-600">实现智能批处理和请求队列管理，提高GPU利用率，单位时间内处理更多请求，效率提升30-40%。</p>
+                    </div>
+                    <div class="bg-gray-50 p-5 rounded-lg">
+                        <div class="flex items-center mb-3">
+                            <i class="fas fa-database text-red-500 text-xl mr-3"></i>
+                            <h3 class="text-xl font-semibold text-gray-800">缓存与检索增强</h3>
+                        </div>
+                        <p class="text-gray-600">构建高效知识库和结果缓存系统，减少重复计算，降低LLM调用频率，节约15-20%算力成本。</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Additional Analysis -->
+            <section class="bg-white rounded-lg shadow-lg p-6">
+                <h2 class="text-2xl font-semibold text-gray-800 mb-6">成本结构分析</h2>
+                <div class="flex flex-col md:flex-row">
+                    <div class="w-full md:w-1/2 p-4">
+                        <canvas id="costStructureChart"></canvas>
+                    </div>
+                    <div class="w-full md:w-1/2 p-4">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-4">关键发现与趋势</h3>
+                        <ul class="space-y-3 text-gray-600">
+                            <li class="flex items-start">
+                                <i class="fas fa-arrow-trend-down text-green-500 mt-1 mr-2"></i>
+                                <span>硬件成本预计每年下降15-20%，受益于新一代芯片架构效率提升</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-arrow-trend-up text-blue-500 mt-1 mr-2"></i>
+                                <span>模型效率将持续提升，同等性能的模型参数量和计算需求降低</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-scale-balanced text-purple-500 mt-1 mr-2"></i>
+                                <span>规模效应将显著降低单位学生算力成本，平台用户增长10倍时，单位成本可降低约40%</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-lightbulb text-yellow-500 mt-1 mr-2"></i>
+                                <span>边缘计算与设备端推理技术将在2026年贡献约25%的成本节约</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <!-- Footer -->
+        <footer class="mt-10 text-center text-gray-500 text-sm">
+            <p>© 2024 AI教育平台成本分析报告 | 数据更新时间: 2024年5月</p>
+        </footer>
+    </div>
+
+    <script>
+        // Cost Evolution Chart
+        const costEvolutionCtx = document.getElementById('costEvolutionChart').getContext('2d');
+        const costEvolutionChart = new Chart(costEvolutionCtx, {
+            type: 'line',
+            data: {
+                labels: ['2024 Q1', '2024 Q2', '2024 Q3', '2024 Q4', '2025 Q1', '2025 Q2', '2025 Q3', '2025 Q4', '2026 Q1', '2026 Q2', '2026 Q3', '2026 Q4'],
+                datasets: [
+                    {
+                        label: '每学生时算力成本 (元)',
+                        data: [0.42, 0.40, 0.38, 0.35, 0.33, 0.30, 0.28, 0.25, 0.22, 0.19, 0.17, 0.15],
+                        borderColor: 'rgba(79, 70, 229, 1)',
+                        backgroundColor: 'rgba(79, 70, 229, 0.1)',
+                        fill: true,
+                        tension: 0.4,
+                        borderWidth: 3,
+                        pointRadius: 4,
+                        pointBackgroundColor: 'rgba(79, 70, 229, 1)'
+                    },
+                    {
+                        label: '基准情况 (无优化)',
+                        data: [0.42, 0.41, 0.40, 0.40, 0.39, 0.38, 0.38, 0.37, 0.36, 0.36, 0.35, 0.34],
+                        borderColor: 'rgba(209, 213, 219, 1)',
+                        borderDash: [5, 5],
+                        fill: false,
+                        tension: 0.4,
+                        borderWidth: 2,
+                        pointRadius: 0
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    tooltip: {
+                        mode: 'index',
+                        intersect: false,
+                        callbacks: {
+                            label: function(context) {
+                                return `${context.dataset.label}: ¥${context.raw.toFixed(2)}`;
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: '每学生时成本 (元)'
+                        }
+                    }
+                }
+            }
+        });
+
+        // Optimization Impact Chart
+        const optimizationCtx = document.getElementById('optimizationChart').getContext('2d');
+        const optimizationChart = new Chart(optimizationCtx, {
+            type: 'bar',
+            data: {
+                labels: ['模型量化与压缩', '混合云策略', '批处理优化', '缓存与检索增强', '预计总优化效果'],
+                datasets: [{
+                    label: '成本节约百分比',
+                    data: [30, 20, 35, 18, 65],
+                    backgroundColor: [
+                        'rgba(16, 185, 129, 0.7)',
+                        'rgba(59, 130, 246, 0.7)',
+                        'rgba(139, 92, 246, 0.7)',
+                        'rgba(239, 68, 68, 0.7)',
+                        'rgba(245, 158, 11, 0.7)'
+                    ],
+                    borderColor: [
+                        'rgba(16, 185, 129, 1)',
+                        'rgba(59, 130, 246, 1)',
+                        'rgba(139, 92, 246, 1)',
+                        'rgba(239, 68, 68, 1)',
+                        'rgba(245, 158, 11, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return `成本节约: ${context.raw}%`;
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100,
+                        title: {
+                            display: true,
+                            text: '成本节约 (%)'
+                        }
+                    }
+                }
+            }
+        });
+
+        // Cost Structure Chart
+        const costStructureCtx = document.getElementById('costStructureChart').getContext('2d');
+        const costStructureChart = new Chart(costStructureCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['计算资源 (GPU/TPU)', '存储', '带宽', '运维支持', '软件授权'],
+                datasets: [{
+                    data: [65, 10, 8, 12, 5],
+                    backgroundColor: [
+                        'rgba(79, 70, 229, 0.8)',
+                        'rgba(16, 185, 129, 0.8)',
+                        'rgba(245, 158, 11, 0.8)',
+                        'rgba(239, 68, 68, 0.8)',
+                        'rgba(107, 114, 128, 0.8)'
+                    ],
+                    borderColor: [
+                        'rgba(79, 70, 229, 1)',
+                        'rgba(16, 185, 129, 1)',
+                        'rgba(245, 158, 11, 1)',
+                        'rgba(239, 68, 68, 1)',
+                        'rgba(107, 114, 128, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'right',
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return `${context.label}: ${context.raw}%`;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
